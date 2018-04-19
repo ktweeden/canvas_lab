@@ -8,8 +8,22 @@ body {
 
 #main-canvas {
   display: block;
-  margin:auto;
+  margin: auto;
+  margin-top: 1rem;
   border: 1px solid black;
+  border-radius: 10px;
+  background-color: #F5F0EF;
+}
+
+#canvas-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 530px;
+  width: 650px;
+  background: red;
+  border-radius: 10px;
 }
 
 #button-container {
@@ -18,7 +32,7 @@ body {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  width: 15vw;
+  width: 8vw;
 
 }
 
@@ -29,7 +43,7 @@ body {
 }
 
 #button-second-line {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -42,8 +56,31 @@ body {
 }
 
 #reset-container {
-  margin: 1rem 0;
+  margin-top: 1rem;
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.shake {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes shake {
+    10%, 50%, 90% {
+        transform:translate(10px, 0);
+    }
+    30%, 70% {
+        transform:translate(-10px, 0);
+    }
+}
+
+h2 {
+  color: gold;
+  width: 100%;
+  margin: 2rem 0 0.5rem 0;
+  text-align: center;
 }

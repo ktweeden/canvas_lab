@@ -1,13 +1,12 @@
 const app = function() {
   const canvas = document.querySelector('#main-canvas');
   const context = canvas.getContext('2d');
-  context.strokeStyle = 'grey';
 
   canvas.addEventListener('click', function(event) {
     console.log(event.layerX, event.layerY);
   })
 
-  let startPoint = {x: 10, y: 490};
+  let startPoint = {x: 10, y: 390};
 
   const moveLeftButton = document.querySelector('#move-left');
   moveLeftButton.addEventListener('click', () => {
@@ -93,6 +92,11 @@ const app = function() {
   const resetButton = document.querySelector('#reset');
   resetButton.addEventListener('click', () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
+    const container = document.querySelector('#canvas-container');
+    container.classList.add('shake');
+    setTimeout(function() {
+      container.classList.remove('shake');
+    }, 2000);
   })
 
 }// end of app
