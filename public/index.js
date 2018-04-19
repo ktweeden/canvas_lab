@@ -74,15 +74,19 @@ const app = function() {
     const key = event.key
     switch (key) {
       case "ArrowDown" :
+      event.preventDefault();
       drawDown();
       break;
       case "ArrowUp" :
+      event.preventDefault();
       drawUp();
       break;
       case "ArrowLeft" :
+      event.preventDefault();
       drawLeft();
       break;
       case "ArrowRight" :
+      event.preventDefault();
       drawRight();
       break;
     }
