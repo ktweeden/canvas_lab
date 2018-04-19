@@ -41,6 +41,36 @@ const drawRight = function() {
   context.stroke();
 }
 
+const moveUpButton = document.querySelector('#move-up');
+moveUpButton.addEventListener('click', () => {
+  drawUp();
+});
+
+const drawUp = function() {
+  context.beginPath();
+  context.moveTo(startPoint.x, startPoint.y);
+  if (startPoint.y > 0) {
+    startPoint.y -= 5;
+  }
+  context.lineTo(startPoint.x, startPoint.y);
+  context.stroke();
+}
+
+const moveDownButton = document.querySelector('#move-down');
+moveDownButton.addEventListener('click', () => {
+  drawDown();
+});
+
+const drawDown = function() {
+  context.beginPath();
+  context.moveTo(startPoint.x, startPoint.y);
+  if (startPoint.y < 500) {
+    startPoint.y += 5;
+  }
+  context.lineTo(startPoint.x, startPoint.y);
+  context.stroke();
+}
+
 }// end of app
 
 document.addEventListener('DOMContentLoaded', app);

@@ -1,9 +1,19 @@
-/* body {
+body {
   display: flex;
-} */
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
 
 #main-canvas {
   display: block;
   margin:auto;
   border: 1px solid black;
+}
+
+#button-container {
+  display: block;
+  margin: auto;
+  padding: 1rem;
 }
