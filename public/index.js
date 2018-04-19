@@ -17,12 +17,30 @@ const app = function() {
   const drawLeft = function() {
     context.beginPath();
     context.moveTo(startPoint.x, startPoint.y);
-    if (startPoint.x > 0 && startPoint.x < 500) {
+    console.log('Before increment', startPoint);
+    if (startPoint.x > 0) {
       startPoint.x -= 5;
     }
+    console.log('After increment', startPoint);
     context.lineTo(startPoint.x, startPoint.y);
     context.stroke();
   }
+
+const moveRightButton = document.querySelector('#move-right');
+moveRightButton.addEventListener('click', () => {
+  drawRight();
+});
+
+const drawRight = function() {
+  context.beginPath();
+  context.moveTo(startPoint.x, startPoint.y);
+  if (startPoint.x < 600) {
+    startPoint.x += 5;
+  }
+  context.lineTo(startPoint.x, startPoint.y);
+  context.stroke();
 }
+
+}// end of app
 
 document.addEventListener('DOMContentLoaded', app);
