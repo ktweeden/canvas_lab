@@ -26,50 +26,74 @@ const app = function() {
     context.stroke();
   }
 
-const moveRightButton = document.querySelector('#move-right');
-moveRightButton.addEventListener('click', () => {
-  drawRight();
-});
+  const moveRightButton = document.querySelector('#move-right');
+  moveRightButton.addEventListener('click', () => {
+    drawRight();
+  });
 
-const drawRight = function() {
-  context.beginPath();
-  context.moveTo(startPoint.x, startPoint.y);
-  if (startPoint.x < 600) {
-    startPoint.x += 5;
+  const drawRight = function() {
+    context.beginPath();
+    context.moveTo(startPoint.x, startPoint.y);
+    if (startPoint.x < canvas.width) {
+      startPoint.x += 5;
+    }
+    context.lineTo(startPoint.x, startPoint.y);
+    context.stroke();
   }
-  context.lineTo(startPoint.x, startPoint.y);
-  context.stroke();
-}
 
-const moveUpButton = document.querySelector('#move-up');
-moveUpButton.addEventListener('click', () => {
-  drawUp();
-});
+  const moveUpButton = document.querySelector('#move-up');
+  moveUpButton.addEventListener('click', () => {
+    drawUp();
+  });
 
-const drawUp = function() {
-  context.beginPath();
-  context.moveTo(startPoint.x, startPoint.y);
-  if (startPoint.y > 0) {
-    startPoint.y -= 5;
+  const drawUp = function() {
+    context.beginPath();
+    context.moveTo(startPoint.x, startPoint.y);
+    if (startPoint.y > 0) {
+      startPoint.y -= 5;
+    }
+    context.lineTo(startPoint.x, startPoint.y);
+    context.stroke();
   }
-  context.lineTo(startPoint.x, startPoint.y);
-  context.stroke();
-}
 
-const moveDownButton = document.querySelector('#move-down');
-moveDownButton.addEventListener('click', () => {
-  drawDown();
-});
+  const moveDownButton = document.querySelector('#move-down');
+  moveDownButton.addEventListener('click', () => {
+    drawDown();
+  });
 
-const drawDown = function() {
-  context.beginPath();
-  context.moveTo(startPoint.x, startPoint.y);
-  if (startPoint.y < 500) {
-    startPoint.y += 5;
+  const drawDown = function() {
+    context.beginPath();
+    context.moveTo(startPoint.x, startPoint.y);
+    if (startPoint.y < canvas.height) {
+      startPoint.y += 5;
+    }
+    context.lineTo(startPoint.x, startPoint.y);
+    context.stroke();
   }
-  context.lineTo(startPoint.x, startPoint.y);
-  context.stroke();
-}
+
+  document.addEventListener('keydown', (event) => {
+    const key = event.key
+    switch (key) {
+      case "ArrowDown" :
+      drawDown();
+      break;
+      case "ArrowUp" :
+      drawUp();
+      break;
+      case "ArrowLeft" :
+      drawLeft();
+      break;
+      case "ArrowRight" :
+      drawRight();
+      break;
+    }
+    console.log(event.key);
+  })
+
+  const resetButton = document.querySelector('#reset');
+  resetButton.addEventListener('click', () => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  })
 
 }// end of app
 
